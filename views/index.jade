@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  div.navbar.navbar-default.navbar-static-top
+    div.container
+      div.navbar-header
+        button(type='button',data-toggle='collapse',data-target='.navbar-collapse').navbar-toggle
+          span.sr-only= title
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand= title
+      div.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active
+            a(href='#') Top
+          li
+            a(href='#links') Links
+          li
+            a(href='#api') API
+  div.container
+    h1= title
+    div.row
+      div.col-lg-4
+        p(style='font-size: xx-large; font-weight: bold;')
+          田村ゆかりさんは今日で「
+          span#result XX歳とXXヶ月XX日
+          」です!
+      div.col-lg-4
+        h2#links Links
+        ul
+          li
+            a(href='http://www.tamurayukari.com/') ||||| 田村ゆかり OFFICIAL WEB-SITE [ Tamura Yukari.com ] |||||
+          li
+            a(href='https://twitter.com/yukari_tamura') 田村ゆかり 公式Twitterアカウント
+          li
+            a(href='https://www.google.co.jp/search?q=田村ゆかり 年齢')田村ゆかり 年齢 - Google 検索
+      div.col-lg-4
+        h2#api API
+        h3 Entry Point
+        p
+          code /api/years_old
+        h3 Query Parameter 
+        table.table
+          thead
+            tr
+              th 名前
+              th 説明
+          tbody
+            tr
+              td date
+              td 田村ゆかりさんの年齢を求めたい年月日を適当なフォーマット(例えば
+                code 2000-01-01
+                )のように渡します。<br>
+                省略可能で、省略した場合、現在の日付となります。
+        h3 Response
+        p
+          code years
+          |、
+          code month
+          |、
+          code days
+          の三つの要素のあるJSONが返されます。
+        h3 Response Example
+          code
+            pre
+              |{
+              |  "years": 17,
+              |  "month": 82,
+              |  "days": 5
+              |}
+
+  script(src="/javascripts/index.js")
