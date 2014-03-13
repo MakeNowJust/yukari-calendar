@@ -3,7 +3,7 @@ $(function () {
   result = $('#result');
 
   $.ajax({
-    url:  '/api/years_old',
+    url:  '/api/years_old.json',
     type: 'GET',
     dataType: 'json',
     cache: false,
