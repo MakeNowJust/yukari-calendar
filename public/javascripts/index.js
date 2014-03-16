@@ -35,7 +35,13 @@ $(function () {
   }).done(function (data) {
     result.text(format(data));
   }).fail(function (err) {
-    console.log(err);
+    try {
+      var
+      res = JSON.parse(err.responseText);
+      result.parent().text('Error: ' + res.error);
+    } catch (e) {
+      result.parent().text('Error');
+    }
   });
 
   function zp(n) {
