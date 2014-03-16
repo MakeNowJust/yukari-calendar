@@ -19,7 +19,7 @@ module.exports.years_old = function years_old(req, res) {
     return;
   }
 
-  if (time.isValid()) {
+  if (!time.isValid()) {
     res.jsonp(400, {
       error: 'invalid date format',
     });
