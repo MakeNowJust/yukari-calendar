@@ -30,16 +30,19 @@ block content
         h2#links Links
         ul
           li
-            a(href='http://www.tamurayukari.com/') ||||| 田村ゆかり OFFICIAL WEB-SITE [ Tamura Yukari.com ] |||||
+            a(href='http://www.tamurayukari.com/') 田村ゆかり 公式サイト
           li
             a(href='https://twitter.com/yukari_tamura') 田村ゆかり 公式Twitterアカウント
+          li
+            a(href='https://twitter.com/YukarihimeStaff') 田村ゆかり スタッフ公式Twitterアカウント
           li
             a(href='https://www.google.co.jp/search?q=田村ゆかり 年齢')田村ゆかり 年齢 - Google 検索
       div.col-lg-4
         h2#api API
-        h3 Entry Point
         p
           code /api/years_old.json
+        p
+          |田村ゆかりさんの年齢を計算するAPIです。
         h3 Query Parameter 
         table.table
           thead
@@ -48,30 +51,73 @@ block content
               th 説明
           tbody
             tr
-              td 
+              td
                 code date
-              td 田村ゆかりさんの年齢を求めたい年月日を適当なフォーマット(例えば
-                code 2000-01-01
-                )のように渡します。<br>
-                省略可能で、省略した場合、現在の日付となります。
+              td
+                :markdown
+                  ここで指定した年月日時点の田村ゆかりさんの年齢を求めます。   
+                  年月日は`2000-01-01`のようなフォーマットで指定して下さい。   
+                  省略した場合、現在の時刻となります。
+            tr
+              td
+                code mode
+              td
+                :markdown
+                  年齢の計算方法指定します。  
+                  計算方法は現在二種類あります。
+
+                  - 一つは`kingdom`モードです。これが一般的な計算方法になります。
+                  - もう一つは`real`モードです。現在ではこのモードの使用は推奨されていません。__絶対に使用してはいけません。__
+
+                  省略した場合は`kingdom`となります。
+            tr
+              td
+                code callback
+              td
+                :markdown
+                  ここに指定した値をJSONPのコールバックとします。  
+                  省略した場合は通常のJSONが返されます。
         h3 Response
-        p
-          code years
-          |、
-          code month
-          |、
-          code days
-          の三つの要素のあるJSONが返されます。
+        :markdown
+          リクエストに成功した場合、ステータス`200 OK`と共に、次のようなJSONが返されます。
+        table.table
+          thead
+            tr
+              th 名前
+              th 説明
+          tbody
+            tr
+              td
+                code years
+              td
+                :markdown
+                  指定した年月日時点での田村ゆかりさんの年齢を表わす数値です。
+            tr
+              td
+                code month
+              td
+                :markdown
+                  指定した年月日時点で`years`歳になってから何ヶ月経ったを表わす数値です。
+            tr
+              td
+                code days
+              td
+                :markdown
+                  指定した年月日時点で`years`歳になって`month`ヶ月目の何日目かを表わす数値です。
+        :markdown
+          また、指定したパラメーターに問題があった場合は、ステータス`400 Bad Request`と共に、`error`という要素のみのJSON(P)を返します。
         h3 Response Example
+        :markdown
+          `/api/years_old.json?date=2000-01-01`にリクエストした場合。
+        pre
           code
-            pre
-              |{
-              |  "years": 17,
-              |  "month": 82,
-              |  "days": 5
-              |}
+            |{
+            |  "years": 17,
+            |  "month": 82,
+            |  "days": 5
+            |}
       div.col-lg-4
-        p Created by 
+        p (C) 2014
           a(href='https://twitter.com/make_now_just') Tsuyusato Kitsune (@make_now_just)
 
   script(src="/javascripts/index.js")
