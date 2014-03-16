@@ -9,7 +9,6 @@ bodyParser = require('body-parser');
 
 var
 routes = require('./routes');
-routes.api = require('./routes/api');
 
 var
 app = express();
@@ -40,6 +39,9 @@ app.use(function (req, res, next) {
 app.use(app.router);
 
 app.get('/', routes.index);
+app.get('/real', routes.real);
+app.get('/:date', routes.date);
+app.get('/real/:date', routes.realDate);
 app.get('/api/years_old.json', routes.api.years_old);
 
 /// catch 404 and forwarding to error handler
