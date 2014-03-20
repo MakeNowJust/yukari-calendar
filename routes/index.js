@@ -1,24 +1,32 @@
 var
-title = 'ゆかりカレンダー';
+_     = require('lodash');
+
+var
+title = 'ゆかりカレンダー',
+ga    = require('./ga.js'),
+base  = {
+  title: title,
+  ga: ga,
+};
 
 //get /
 exports.index = function (req, res) {
-  res.render('index', { title: title });
+  res.render('index', base);
 };
 
 //get /real
 exports.real = function (req, res) {
-  res.render('index', { title: title, mode: 'real' });
+  res.render('index', _.assign({}, base, {mode: 'real'}));
 };
 
 //get /:date
 exports.date = function (req, res) {
-  res.render('index', { title: title, date: req.params.date });
+  res.render('index', _.assign({}, base, { date: req.params.date }));
 };
 
 //get /real/:date
 exports.realDate = function (req, res) {
-  res.render('index', { title: title, date: req.params.date, mode: 'real' });
+  res.render('index', _.assign({}, base, { date: req.params.date, mode: 'real' }));
 };
 
 //access /api/*
