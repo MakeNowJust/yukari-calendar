@@ -39,7 +39,7 @@ $(function () {
     if (btn.prop('tagName') === 'A') {
       btn.attr('data-text', result.parent().text());
     } else {
-      btn.attr('src', btn.attr('src') + '&text=' + encodeURIComponent(result.parent().text()));
+      btn.attr('src', btn.attr('src').replace(/&text=[^&]+/, '&text=' + encodeURIComponent(result.parent().text())));
     }
   }).fail(function (err) {
     try {
