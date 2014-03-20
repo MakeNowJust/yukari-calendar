@@ -34,13 +34,22 @@ $(function () {
   }).done(function (data) {
     var
     fmt = format(data),
-    btn = $('#tweet-btn');
+    btn = $('<a>');
     result.text(fmt);
-    if (btn.prop('tagName') === 'A') {
-      btn.attr('data-text', result.parent().text());
-    } else {
-      btn.attr('src', btn.attr('src').replace(/&text=[^&]+/, '&text=' + encodeURIComponent(result.parent().text())));
-    }
+
+    btn
+      .attr({
+        'href': 'https://twitter.com/share',
+        'data-via': 'make_now_just',
+        'data-text': result.parent().text(),
+        'data-lang': 'ja',
+      })
+      .addClass('twitter-share-button')
+      .appendTo('#tweet-btn');
+    setTimeout(function f() {
+      if (twttr) twttr.widgets.load();
+      else setTimeout(f, 100);
+    }, 100);
   }).fail(function (err) {
     try {
       var

@@ -1,8 +1,5 @@
 extends layout
 
-mixin tweet_button()
-  a#tweet-btn.twitter-share-button(href='https://twitter.com/share', data-lang='ja', data-via='make_now_just') ツイート
-
 block content
   div.navbar.navbar-default.navbar-fixed-top
     div.navbar-inner
@@ -32,8 +29,7 @@ block content
           で「
           span#result XX歳とXXヶ月XX日
           」です!
-        small
-          +tweet_button()
+        small#tweet-btn
       div.col-md-4.col-sm-12
         div.input-group.date#date-input(data-date-format='yyyy-mm-dd')
           input.form-control(type='text')
