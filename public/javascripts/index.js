@@ -33,9 +33,14 @@ $(function () {
     cache: false,
   }).done(function (data) {
     var
-    fmt = format(data);
+    fmt = format(data),
+    btn = $('#tweet-btn');
     result.text(fmt);
-    $('#tweet-btn').attr('data-text', result.parent().text());
+    if (btn.prop('tagName') === 'A') {
+      btn.attr('data-text', result.parent().text());
+    } else {
+      btn.attr('src', btn.attr('src') + '&text=' + encodeURIComponent(result.parent().text()));
+    }
   }).fail(function (err) {
     try {
       var
