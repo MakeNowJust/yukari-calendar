@@ -32,7 +32,10 @@ $(function () {
     },
     cache: false,
   }).done(function (data) {
-    result.text(format(data));
+    var
+    fmt = format(data);
+    result.text(fmt);
+    $('#tweet-btn').attr('data-text', result.parent().text());
   }).fail(function (err) {
     try {
       var

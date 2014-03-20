@@ -1,3 +1,9 @@
 .main {
   padding-top: 60px;
 }
+
+.main-box {
+  display: inline;
+  font-size: xx-large;
+  font-weight: bold;'
+}

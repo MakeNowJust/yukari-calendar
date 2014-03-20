@@ -1,7 +1,7 @@
 extends layout
 
 mixin tweet_button()
-  a.twitter-share-button(href='https://twitter.com/share', data-lang='ja')ツイート
+  a#tweet-btn.twitter-share-button(href='https://twitter.com/share', data-lang='ja', data-via='make_now_just') ツイート
 
 block content
   div.navbar.navbar-default.navbar-fixed-top
@@ -26,14 +26,14 @@ block content
     h1#top= title
     div.row
       div.col-md-12.col-sm-12
-        p(style='font-size: xx-large; font-weight: bold;')
+        p.main-box
           田村ゆかりさんは
           span#day 今日
           で「
           span#result XX歳とXXヶ月XX日
           」です!
-          small
-            +tweet_button()
+        small
+          +tweet_button()
       div.col-md-4.col-sm-12
         div.input-group.date#date-input(data-date-format='yyyy-mm-dd')
           input.form-control(type='text')
