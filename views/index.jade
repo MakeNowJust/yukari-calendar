@@ -25,15 +25,15 @@ block content
   div.container.main
     h1#top= title
     div.row
-      div.col-md-8.col-sm-12
+      div.col-md-12.col-sm-12
         p(style='font-size: xx-large; font-weight: bold;')
           田村ゆかりさんは
           span#day 今日
-          で<br>「
+          で「
           span#result XX歳とXXヶ月XX日
           」です!
-      div.col-md-4.col-sm-12
-        +tweet_button()
+          small
+            +tweet_button()
       div.col-md-4.col-sm-12
         div.input-group.date#date-input(data-date-format='yyyy-mm-dd')
           input.form-control(type='text')
