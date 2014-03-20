@@ -8,17 +8,16 @@ $(function () {
   dateInput = $('#date-input');
 
   dateInput
-    .val(config.attr('data-date') || now.getFullYear() + '-' + zp(now.getMonth() + 1) + '-' + zp(now.getDate()))
     .datepicker({
       language: 'ja',
     });
 
-  dateInput.next('.input-group-btn').on('click', function () {
-    dateInput.datepicker('show');
-  });
+  dateInput.datepicker('update', config.attr('data-date') || new Date());
 
   $('#date-button').on('click', function () {
-    location.href = (config.attr('data-mode') === 'real' ? '/real/' : '/') + dateInput.val();
+    var
+    date = dateInput.datepicker('getDate');
+    location.href = (config.attr('data-mode') === 'real' ? '/real/' : '/') + date.getFullYear() + '-' + zp(date.getMonth() + 1) + '-' + zp(date.getDate());
   });
 
   $('#day').text(config.attr('data-date') || '今日');

@@ -1,25 +1,26 @@
 extends layout
 
 block content
-  div.navbar.navbar-default.navbar-static-top
-    div.container
-      div.navbar-header
-        button(type='button',data-toggle='collapse',data-target='.navbar-collapse').navbar-toggle
-          span.sr-only= title
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand= title
-      div.navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li.active
-            a(href='#') Top
-          li
-            a(href='#links') Links
-          li
-            a(href='#api') API
-  div.container
-    h1= title
+  div.navbar.navbar-default.navbar-fixed-top
+    div.navbar-inner
+      div.container
+        div.navbar-header
+          button(type='button',data-toggle='collapse',data-target='.navbar-collapse').navbar-toggle
+            span.sr-only= title
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#')= title
+        div.navbar-collapse.collapse
+          ul.nav.navbar-nav#navbar
+            li.active
+              a(href='#top') Top
+            li
+              a(href='#links') Links
+            li
+              a(href='#api') API
+  div.container.main
+    h1#top= title
     div.row
       div.col-md-12
         p(style='font-size: xx-large; font-weight: bold;')
@@ -29,8 +30,8 @@ block content
           span#result XX歳とXXヶ月XX日
           」です!
       div.col-md-4
-        div.input-group
-          input.form-control#date-input(type='text', data-date-format='yyyy-mm-dd')
+        div.input-group.date#date-input(data-date-format='yyyy-mm-dd')
+          input.form-control(type='text')
           span.input-group-btn
             button.btn.btn-default
               i.glyphicon.glyphicon-calendar

@@ -9,7 +9,7 @@ module.exports.years_old = function years_old(req, res) {
   var
   dateStr = req.query.date || moment(),
   mode = req.query.mode || 'kingdom',
-  time = moment(dateStr),
+  time = moment(dateStr, 'YYYY-MM-DD'),
   years, month, days;
 
   if (!(mode === 'kingdom' || mode === 'real')) {
