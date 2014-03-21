@@ -1,6 +1,6 @@
 {
-  "name": "application-name",
-  "version": "0.0.2",
+  "name": "yukari-calendar",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
