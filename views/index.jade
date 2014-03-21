@@ -20,15 +20,17 @@ block content
             li
               a(href='#api') API
   div.container.main
-    h1#top= title
+    h1
+      a#top.anchor
+      =title
     div.row
       div.col-md-12.col-sm-12
         p.main-box
-          田村ゆかりさんは
+          |田村ゆかりさんは
           span#day 今日
-          で「
+          |で「
           span#result XX歳とXXヶ月XX日
-          」です!
+          |」です!
         small#tweet-btn
       div.col-md-4.col-sm-12
         div.input-group.date#date-input(data-date-format='yyyy-mm-dd')
@@ -40,7 +42,9 @@ block content
         button.btn.btn-default#date-button(type='button')
           |時点の田村ゆかりさんの年齢を計算する。
       div.col-md-12.col-sm-12
-        h2#links Links
+        h2
+          a#links.anchor
+          |Links
         ul
           li
             a(href='http://www.tamurayukari.com/') 田村ゆかり 公式サイト
@@ -49,9 +53,11 @@ block content
           li
             a(href='https://twitter.com/YukarihimeStaff') 田村ゆかり スタッフ公式Twitterアカウント
           li
-            a(href='https://www.google.co.jp/search?q=田村ゆかり 年齢')田村ゆかり 年齢 - Google 検索
+            a(href='https://www.google.co.jp/search?q=田村ゆかり 年齢') 田村ゆかり 年齢 - Google 検索
       div.col-md-12.col-sm-12
-        h2#api API
+        h2
+          a#api.anchor
+          |API
         p
           code /api/years_old.json
         p
